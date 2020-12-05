@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    Calendar
+{% endblock %}
+</title>
+{% block content %}
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6"></div>
+                <div class="col-6"><h1>{{"Header"}}</h1></div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                <ul class="navi">
+                    <li><a href="#">{{'link'}}</a></li>
+                    <li><a href="#">{{'link'}}</a></li>
+                    <li><a href="#">{{'link'}}</a></li>
+                    <li><a href="#">{{'link'}}</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>            
+    </nav>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4 time-style">{{ times }}</div>
+                <div class="col-4">{{ html_out|safe }}</div>
+            </div>
+        </div>                  
+    </section>
+    <footer>
+        <div class="container"><h1></h1></div>
+    </footer>
+{% endblock %}
