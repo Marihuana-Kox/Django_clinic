@@ -1,5 +1,14 @@
 body {
-    background:rgb(156, 232, 235);
+    background:rgb(28 66 68);
+}
+a {
+    text-decoration: none;
+    color: cornsilk;
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 3px rgb(32, 32, 32);
 }
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -12,6 +21,12 @@ h1 {
     color: salmon;
     text-shadow: 1px 1px 2px slategrey;
 }
+.time-style H4, H6 {
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
 .navi li {
     display: inline;
     margin: 0 40px 0 0;
@@ -19,4 +34,58 @@ h1 {
 .navi a {
     text-decoration: none;
     font-size: 1.2em;
+}
+.col-days, .col-days-today{
+    cursor: pointer;
+}
+.col-days-week {
+    font-size: .6em;
+    text-align: center;
+    min-width: 14.2%;
+    padding: 1.5%;
+    margin: 0;
+}
+.col-days, .col-days-none {
+    background: black;
+    font-size: .8em;
+    text-align: center;
+    min-width: 14.2%;
+    padding: 1.5%;
+    margin: 0;
+    border: 1px #FFF solid;
+}
+.col-days-none {
+    background: rgb(28 66 68);
+    border: none;
+}
+.col-days-today {
+    font-size: .8em;
+    background: #2d646f;
+    color: #e8e8e8;
+    text-align: center;
+    min-width: 14.2%;
+    padding: 1.5%;
+    margin: 0;
+    border: 1px #FFF solid;
+}
+.active-1d:hover {
+    background: gray;
+}
+.happy {
+    background: rgb(98, 99, 99);
+    color: #d6d6d6;
+}
+.arr-left, .arr-right {
+    padding: 10px;
+    font-size: 1em;
+}
+.arr-left a, .arr-right a {
+    text-decoration: none;
+}
+.arr-right {
+    text-align: right;
+}
+.button-style {
+    text-align: center;
+    padding-top: 20px;
 }

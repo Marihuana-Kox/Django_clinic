@@ -29,12 +29,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-4 time-style">{{ date }}</div>
-                <div class="col-4 time-style">{{ times }}</div>
-                <div class="col-4">{{ html_out|safe }}</div>
-                <div class="col-4 time-style">{{ month }}</div>
-                <div class="col-4 time-style">{{ today }}</div>
-                <div class="col-4 time-style">{{ k }}</div>
+                {{ calendarius|safe }}
             </div>
         </div>                  
     </section>
