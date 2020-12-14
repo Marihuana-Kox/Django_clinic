@@ -19,7 +19,7 @@ def calendar_best(year, month):
     }
 
     weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс", ]
-    
+
     month = int(month)
     year = int(year)
     day_week = dt(year, month, 21).weekday()
@@ -27,13 +27,11 @@ def calendar_best(year, month):
     now = dt.now()
     today_month = int(now.strftime('%m'))
 
-    happy_day = int(now.today().isoweekday()) 
-    
-
+    happy_day = int(now.today().isoweekday())
 
     last_year = year
     next_year = year
-    
+
     if month == 12:
         next_month = 1
         next_year + 1
@@ -49,18 +47,25 @@ def calendar_best(year, month):
     no_working = [6.]
     today_year = now.strftime('%Y')
     today = now.today().strftime('%-d')
+    
     cal = calendar.monthcalendar(year, month)
     viewcall = "<div class='col-4 time-style arr-left'>"
-    viewcall += "<a href='/next/{0}/{1}/'" . format(last_year -1 if last_month == 12 else last_year, last_month)
-    viewcall += "><< {0} {1}</a>" . format(months[last_month], last_year -1 if last_month == 12 else last_year)
+    viewcall += "<a href='/next/{0}-{1}/'" . format(
+        last_year - 1 if last_month == 12 else last_year, last_month)
+    viewcall += "><< {0} {1}</a>" . format(
+        months[last_month], last_year - 1 if last_month == 12 else last_year)
     viewcall += "</div>"
     viewcall += "<div class='col-4 time-style'>"
-    viewcall += "<H4>{0}</H4>" . format(months[month])
-    viewcall += "<H6>{0}</H6>" . format(year)
+    viewcall += "<H4 class='get-last-month' id='{0}'>{1}</H4>" . format(
+        month, months[month])
+    viewcall += "<H6 class='get-last-year'>{0}</H6>" . format(year)
+    viewcall += "<div class='modelwindow'></div>"
     viewcall += "</div>"
     viewcall += "<div class='col-4 time-style arr-right'>"
-    viewcall += "<a href='/next/{0}/{1}/'" . format(next_year + 1 if next_month == 1 else next_year, next_month)
-    viewcall += ">{0} {1} >></a>" . format(months[next_month], next_year + 1 if next_month == 1 else next_year)
+    viewcall += "<a href='/next/{0}-{1}/'" . format(
+        next_year + 1 if next_month == 1 else next_year, next_month)
+    viewcall += ">{0} {1} >></a>" . format(
+        months[next_month], next_year + 1 if next_month == 1 else next_year)
     viewcall += "</div>"
     viewcall += "<div class='col-12 time-style'>"
     viewcall += "<div class='row'>"
@@ -77,16 +82,16 @@ def calendar_best(year, month):
                         viewcall += "<div class='col-days-today happy'>{0}</div>" . format(
                             days)
                     else:
-                        viewcall += "<div class='col-days-today'>{0}</div>" . format(
-                            days)
+                        viewcall += "<div class='col-days-today' id='{0}'>{1}</div>" . format(
+                            now.strftime("%Y-%m-%d"), days)
                 else:
                     if dt(year, month, days).weekday() in no_working:
                         viewcall += "<div class='col-days happy'>{0}</div>" . format(
                             days)
-                    else:    
-                        viewcall += "<div class='col-days'>{0}</div>" . format(
-                            days)
-    viewcall += "<div class='col-12 button-style'><a href='/'>Сегодня</a></div>"  
+                    else:
+                        viewcall += "<div class='col-days' id='{0}-{1}-{2}'>{3}</div>" . format(
+                            year, month, days, days)
+    viewcall += "<div class='col-12 button-style'><a href='/'>Сегодня</a></div>"
     viewcall += "</div></div>"
 
     return viewcall

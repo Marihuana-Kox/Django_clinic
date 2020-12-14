@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -7,22 +8,16 @@
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/css/customstyle.css' %}">
     <title>
-        {% block title %}
-        index
-        {% endblock %}
+        {% block title %} index {% endblock %}
     </title>
 </head>
-<!-- <script>
-    setTimeout(function(){
-        location.reload();
-    }, 1000);
-</script> -->
+
 <body>
-{% block content %}
-{% endblock %}
+    {% block content %} {% endblock %}
     <script src="{% static '/js/jQuery.js' %}"></script>
     <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static '/js/bootstrap.min.js' %}"></script>
-    <script src="{% static '/js/custom.js' %}"></script>
+    <script src="{% static '/js/style.calendar.js' %}"></script>
 </body>
+
 </html>
