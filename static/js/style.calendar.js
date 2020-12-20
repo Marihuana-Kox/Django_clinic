@@ -37,6 +37,9 @@ $(document).ready(function() {
             date: { 'register_date': register_date },
             success: function(data) {
                 $('.modelwindow').html(data)
+                $('.close-reg-form').click(function() {
+                    $('.modelwindow').html('')
+                })
             },
             failure: function(data) {
                 alert('Got an error dude');

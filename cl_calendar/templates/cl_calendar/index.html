@@ -1,39 +1,41 @@
-{% extends 'base.html' %}
-{% block title %}
-    Calendar
-{% endblock %}
+{% extends 'base.html' %} {% block title %} Calendar {% endblock %}
 </title>
 {% block content %}
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-6"></div>
-                <div class="col-6"><h1>{{"Header"}}</h1></div>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <h1>{{"Календарь"}}</h1>
             </div>
         </div>
-    </header>
-    <nav>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+    </div>
+</header>
+<nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
                 <ul class="navi">
-                    <li><a href="#">{{'link'}}</a></li>
-                    <li><a href="#">{{'link'}}</a></li>
-                    <li><a href="#">{{'link'}}</a></li>
-                    <li><a href="#">{{'link'}}</a></li>
+                    <li><a href="#">{{'Ссылка'}}</a></li>
+                    <li><a href="#">{{'Ссылка'}}</a></li>
+                    <li><a href="#">{{'Ссылка'}}</a></li>
+                    <li><a href="#">{{'Ссылка'}}</a></li>
                 </ul>
-                </div>
             </div>
-        </div>            
-    </nav>
-    <section>
-        <div class="container">
-            <div class="row">
-                {{ calendarius|safe }}
-            </div>
-        </div>                  
-    </section>
-    <footer>
-        <div class="container"><h1></h1></div>
-    </footer>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container">
+        <div class="row">
+            {{ calendarius|safe }}
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <h1></h1>
+    </div>
+    <div class='modelwindow'></div>
+</footer>
 {% endblock %}

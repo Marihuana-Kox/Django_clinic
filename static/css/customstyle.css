@@ -26,20 +26,36 @@ h1 {
 
 .time-style {
     font-size: 2em;
-    color: salmon;
+    color: #e63b28;
     text-shadow: 1px 1px 2px slategrey;
 }
 
+.modelwindow {}
+
 .regDate {
     text-align: center;
+    padding-top: 30px;
+    top: 40%;
     position: absolute;
     z-index: 1;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    width: 200px;
-    height: 100px;
+    width: 30%;
+    height: auto;
     background: #FFF;
+}
+
+.close-reg-form {
+    background: url('/media/cancel.png') white center;
+    cursor: pointer;
+    border-radius: 25px;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    position: inherit;
+    top: -21px;
+    left: 96%;
 }
 
 .time-style H4,
@@ -75,7 +91,7 @@ H6 {
 
 .col-days,
 .col-days-none {
-    background: black;
+    background: #91e88b;
     font-size: .8em;
     text-align: center;
     min-width: 14.2%;
@@ -91,17 +107,17 @@ H6 {
 
 .col-days-today {
     font-size: .8em;
-    background: #2d646f;
+    background: #61c714;
     color: #e8e8e8;
     text-align: center;
     min-width: 14.2%;
     padding: 1.5%;
     margin: 0;
-    border: 1px #FFF solid;
+    border: 1px #3b8210;
 }
 
 .no-active {
-    background: #4b4154;
+    background: #6ca4b5;
     color: #a4b6b7;
     cursor: pointer;
 }
@@ -112,7 +128,7 @@ H6 {
 }
 
 .happy {
-    background: rgb(98, 99, 99);
+    background: rgb(162 100 70);
     color: #d6d6d6;
 }
 
@@ -134,4 +150,8 @@ H6 {
 .button-style {
     text-align: center;
     padding-top: 20px;
+}
+
+form li {
+    background: chartreuse;
 }

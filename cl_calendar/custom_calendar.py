@@ -2,7 +2,7 @@ from datetime import datetime as dt
 import calendar
 
 
-def calendar_best(year, month):
+def calendar_best(year, month, week_work):
     months = {
         1: "Январь",
         2: "Февраль",
@@ -44,10 +44,14 @@ def calendar_best(year, month):
         next_month = month + 1
         last_month = month - 1
 
-    no_working = [6.]
+    no_working = []
+
+    for val in week_work.values('week_day'):
+        no_working.append(int(*val.values()) - 1)
+
     today_year = now.strftime('%Y')
     today = now.today().strftime('%-d')
-    
+
     cal = calendar.monthcalendar(year, month)
     viewcall = "<div class='col-4 time-style arr-left'>"
     viewcall += "<a href='/next/{0}-{1}/'" . format(
@@ -59,7 +63,6 @@ def calendar_best(year, month):
     viewcall += "<H4 class='get-last-month' id='{0}'>{1}</H4>" . format(
         month, months[month])
     viewcall += "<H6 class='get-last-year'>{0}</H6>" . format(year)
-    viewcall += "<div class='modelwindow'></div>"
     viewcall += "</div>"
     viewcall += "<div class='col-4 time-style arr-right'>"
     viewcall += "<a href='/next/{0}-{1}/'" . format(
@@ -78,14 +81,14 @@ def calendar_best(year, month):
                 viewcall += "<div class='col-days-none'></div>"
             else:
                 if days == int(today) and month == today_month and year == int(today_year):
-                    if dt(year, month, days).weekday() in no_working:
+                    if dt(year, month, days).weekday() not in no_working:
                         viewcall += "<div class='col-days-today happy'>{0}</div>" . format(
                             days)
                     else:
                         viewcall += "<div class='col-days-today' id='{0}'>{1}</div>" . format(
                             now.strftime("%Y-%m-%d"), days)
                 else:
-                    if dt(year, month, days).weekday() in no_working:
+                    if dt(year, month, days).weekday() not in no_working:
                         viewcall += "<div class='col-days happy'>{0}</div>" . format(
                             days)
                     else:
