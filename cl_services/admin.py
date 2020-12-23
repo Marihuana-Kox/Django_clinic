@@ -8,11 +8,11 @@ class SelectTermAdmin(admin.ModelAdmin):
 
 
 class SelectADiseaseAdmin(admin.ModelAdmin):
-    list_display = ('disease',)
+    list_display = ('pk', 'disease',)
 
 
 class ServicesAndPriceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'price')
+    list_display = ('pk', 'name', 'disease', 'description', 'price')
 
 
 admin.site.register(SelectTerm, SelectTermAdmin)

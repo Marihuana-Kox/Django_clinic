@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import Context, Template, loader
 from datetime import datetime as dt
 from django.http import HttpResponse, HttpResponseNotFound
@@ -8,6 +8,7 @@ from . forms import RegistrationDateForm
 
 
 def index(request):
+    """ Главная страница с текущим месяцем в календаре """
     form = RegistrationDateForm()
     week_work = WorkinDays.objects.all()
     now = dt.now()
@@ -19,21 +20,24 @@ def index(request):
 
 
 def get_month(request, year, month):
+    """Метод формирует ссылки на другие месяца"""
     week_work = WorkinDays.objects.all()
     calendarius = cal(year, month, week_work)
     return render(request, 'cl_calendar/index.html',
                   {'calendarius': calendarius, })
 
 
-def add_register(request, regdate):
-    form = RegistrationDateForm()
-    template = loader.get_template('cl_calendar/modal_form.html')
-    if regdate not in 'undefined':
-        context = {
-            'regdate': regdate,
-            'form': form,
-        }
-        # html = "<div class='regDate'><h3> %s </h3>'{% form %}'</div>" % regdate
-        return HttpResponse(template.render(context, request))
-    else:
-        return HttpResponse("<div class='regDate'><h3>Нет страницы</h3></div>")
+def add_register(request):
+    """Запись нового пациента на выбранную дату"""
+    if request.method == 'POST':
+        form = RegistrationDateForm(request.POST)
+        if form.is_valid():
+            record = form.save(commit=False)
+            record.save()
+            return redirect("/")
+        else:
+            form = RegistrationDate()
+            context = {'form': form,}
+        return render(request, 'cl_calendar/index.html',
+                  context)
+

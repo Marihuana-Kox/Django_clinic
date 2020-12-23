@@ -9,7 +9,7 @@ class WeekAdmin(admin.ModelAdmin):
 
 
 class RegistrationDateAdmin(admin.ModelAdmin):
-    list_display = ('phone', 'surname', 'name', 'patronymic', 'dob')
+    list_display = ('phone', 'surname', 'name', 'patronymic', 'dob', 'curent_date',)
     search_fields = ('phone', 'surname', 'dob')
 
 

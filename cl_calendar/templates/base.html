@@ -15,9 +15,12 @@
 <body>
     {% block content %} {% endblock %}
     <script src="{% static '/js/jQuery.js' %}"></script>
+    <script src="{% static '/js/jquery.maskedinput.js' %}"></script>
+    <script src="{% static '/js/mask.js' %}"></script>
     <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static '/js/bootstrap.min.js' %}"></script>
-    <script src="{% static '/js/style.calendar.js' %}"></script>
+    <script src="{% static '/js/style.calendar.js' %}">
+    </script>
 </body>
 
 </html>

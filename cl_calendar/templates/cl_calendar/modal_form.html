@@ -1,8 +1,13 @@
 <div class='regDate'>
+    {% load filters_addclass %}
     <div class='close-reg-form'></div>
-    <h3> {{ regdate }} </h3>
-    <form method="POST" , action="/">
-        {{ form.as_ul }}
-        <input type='submit' name='Отправить'>
-    </form>
+    <div class="modal-dialog modal-lg">
+        <h3></h3>
+        <div class="modal-content">
+            <form method="POST" , action="{% url 'register' %}">
+                {% csrf_token %} {% for field in form %} {{ field.label }} {{ field.error }} {{ field|addClass:'form-control' }} {% endfor %}
+                <input type='submit' class="btn btn-info" name='Отправить' id='add-register'>
+            </form>
+        </div>
+    </div>
 </div>

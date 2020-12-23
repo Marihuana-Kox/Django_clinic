@@ -31,19 +31,58 @@ $(document).ready(function() {
     $(".col-days, .col-days-today").click(function() {
         var days = $(this)
         var register_date = days.attr('id')
+        if (register_date == 'undefined') {
+            return false;
+        } else {
+            $('.modelwindow').fadeIn(200)
+            $('.regDate').fadeIn(600)
+            $('.modal-lg h3').text(register_date)
+            $('.close-reg-form').click(function() {
+                $('.regDate').fadeOut(600)
+                $('.modelwindow').fadeOut(200)
+            })
+        }
+    })
+
+    $('#add-register').click(function(a) {
+        var date = new Date();
+        var year = Number(date.getFullYear())
+        var form = $('#id_disease')
+        var item = form.val()
+        var dob = $('#id_dob').val()
+
+        if (item == 1) {
+            form.css({ 'color': 'red' })
+            a.preventDefault()
+        }
+        if (dob.length > 10) {
+            $('#id_dob').after("<p>Год рождения неверный!</p>")
+            $('p').delay(2000).fadeOut()
+            a.preventDefault()
+        } else {
+            var list = dob.split('-')
+            list = Number(list[0])
+            if (list > 2010 || list < 1930) {
+                list = year - list
+                $('#id_dob').after("<p>Вам " + list + " лет? Ваш возраст явно некорректен!</p>")
+                $('p').delay(3000).fadeOut()
+                a.preventDefault()
+            }
+        }
+    })
+
+    $('#id_disease').click(function() {
+        var form = $(this)
+        var item = form.val()
         $.ajax({
-            url: '/register/' + register_date + '/',
+            url: 'select/' + item + '/',
             type: 'GET',
-            date: { 'register_date': register_date },
-            success: function(data) {
-                $('.modelwindow').html(data)
-                $('.close-reg-form').click(function() {
-                    $('.modelwindow').html('')
-                })
-            },
-            failure: function(data) {
-                alert('Got an error dude');
-            },
+            success: function(result) {
+                if (result) {
+                    $('#id_service_diagnos').removeAttr('disabled')
+                    $('#id_service_diagnos').html(result)
+                }
+            }
         })
     })
 

@@ -1,0 +1,5 @@
+{% for servic in selected_service %}
+<option id='{{ servic.pk }}' value='{{ servic.pk }}' Checked=True>
+    {{ servic }} : {{ servic.price }} руб.
+</option>
+{% endfor %}

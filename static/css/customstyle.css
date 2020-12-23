@@ -17,6 +17,12 @@ a:hover {
     text-shadow: 2px 2px 3px rgb(32, 32, 32);
 }
 
+p {
+    padding: 5px;
+    color: #e63b28;
+    background: #FFF;
+}
+
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: snow;
@@ -30,20 +36,30 @@ h1 {
     text-shadow: 1px 1px 2px slategrey;
 }
 
-.modelwindow {}
+.modelwindow {
+    display: none;
+    position: fixed;
+    background: rgb(20 95 99 / 84%);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 .regDate {
+    color: beige;
     text-align: center;
     padding-top: 30px;
     top: 40%;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 30%;
     height: auto;
-    background: #FFF;
+    background: #257579;
 }
 
 .close-reg-form {
@@ -153,5 +169,27 @@ H6 {
 }
 
 form li {
-    background: chartreuse;
+    list-style-type: none;
+    margin: 10px 0 0 10px;
 }
+
+label {
+    width: 80px;
+}
+
+input[type='submit'] {
+    margin: 20px 0;
+}
+
+.modal-content {
+    background-color: #257579;
+    padding: 0 20px;
+}
+
+.select-service {
+    width: 100%;
+    background: #a4b6b7;
+    text-align: left;
+}
+
+.form-control {}

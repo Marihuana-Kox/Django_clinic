@@ -82,18 +82,18 @@ def calendar_best(year, month, week_work):
             else:
                 if days == int(today) and month == today_month and year == int(today_year):
                     if dt(year, month, days).weekday() not in no_working:
-                        viewcall += "<div class='col-days-today happy'>{0}</div>" . format(
+                        viewcall += "<div class='col-days-today happy' id='undefined'>{0}</div>" . format(
                             days)
                     else:
-                        viewcall += "<div class='col-days-today' id='{0}'>{1}</div>" . format(
-                            now.strftime("%Y-%m-%d"), days)
+                        viewcall += "<div class='col-days-today btn btn-primary' id='{0}'>{1}</div>" . format(
+                            now.strftime("%d-%m-%Y"), days)
                 else:
                     if dt(year, month, days).weekday() not in no_working:
-                        viewcall += "<div class='col-days happy'>{0}</div>" . format(
+                        viewcall += "<div class='col-days happy' id='undefined'>{0}</div>" . format(
                             days)
                     else:
-                        viewcall += "<div class='col-days' id='{0}-{1}-{2}'>{3}</div>" . format(
-                            year, month, days, days)
+                        viewcall += "<div class='col-days btn btn-primary' id='{0}-{1}-{2}'>{3}</div>" . format(
+                            days, month, year, days)
     viewcall += "<div class='col-12 button-style'><a href='/'>Сегодня</a></div>"
     viewcall += "</div></div>"
 
