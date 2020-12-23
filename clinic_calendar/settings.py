@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'cl_medication.apps.ClMedicationConfig',
+    'cl_recorder.apps.ClRecorderConfig',
     'cl_services.apps.ClServicesConfig',
     'cl_calendar.apps.ClCalendarConfig',
     'django.contrib.admin',

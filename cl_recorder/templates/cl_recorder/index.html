@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block title %} Recorder {% endblock %} {% block content %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Запись пациентов</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <p>Container</p>
+            </div>
+            <div class="col-4">
+                {% load filters_addclass %}
+                <div class="modal-content">
+                    <form method="POST" action="/">
+                        {% csrf_token %} {% for field in form %} {{ field.label }} {{ field.error }} {{ field|addClass:'form-control' }} {% endfor %}
+                        <input type='submit' class="btn btn-info" name='Отправить' id='add-register'>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <p>Container</p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>Footer</p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
