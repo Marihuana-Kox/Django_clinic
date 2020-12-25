@@ -11,22 +11,32 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-3">
                 <p>Container</p>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 {% load filters_addclass %}
                 <div class="modal-content">
-                    <form method="POST" action="/">
-                        {% csrf_token %} {% for field in form %} {{ field.label }} {{ field.error }} {{ field|addClass:'form-control' }} {% endfor %}
-                        <input type='submit' class="btn btn-info" name='Отправить' id='add-register'>
+                    <form method="POST" action="#">
+                        {% csrf_token %} {% for field in form %} <span>{{ field.label }}</span>{{ field.error }} {{ field|addClass:'form-control' }} {% endfor %}
+                        <input type='button' class="btn btn-info" name="select_time" value='Выбрать время визита' id='add-register' disabled>
                     </form>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
                 <p>Container</p>
             </div>
         </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        {% include 'cl_recorder/calendar_empty.html' %}
+    </div>
+</section>
+<section>
+    <div class="container hidden-block-window">
+        {% include 'cl_recorder/record_free_time.html' %}
     </div>
 </section>
 <footer>

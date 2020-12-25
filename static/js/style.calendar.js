@@ -44,32 +44,32 @@ $(document).ready(function() {
         }
     })
 
-    $('#add-register').click(function(a) {
-        var date = new Date();
-        var year = Number(date.getFullYear())
-        var form = $('#id_disease')
-        var item = form.val()
-        var dob = $('#id_dob').val()
+    // $('#add-register').click(function(a) {
+    //     var date = new Date();
+    //     var year = Number(date.getFullYear())
+    //     var form = $('#id_disease')
+    //     var item = form.val()
+    //     var dob = $('#id_dob').val()
 
-        if (item == 1) {
-            form.css({ 'color': 'red' })
-            a.preventDefault()
-        }
-        if (dob.length > 10) {
-            $('#id_dob').after("<p>Год рождения неверный!</p>")
-            $('p').delay(2000).fadeOut()
-            a.preventDefault()
-        } else {
-            var list = dob.split('-')
-            list = Number(list[0])
-            if (list > 2010 || list < 1930) {
-                list = year - list
-                $('#id_dob').after("<p>Вам " + list + " лет? Ваш возраст явно некорректен!</p>")
-                $('p').delay(3000).fadeOut()
-                a.preventDefault()
-            }
-        }
-    })
+    //     if (item == 1) {
+    //         form.css({ 'color': 'red' })
+    //         a.preventDefault()
+    //     }
+    //     if (dob.length > 10) {
+    //         $('#id_dob').after("<p>Год рождения неверный!</p>")
+    //         $('p').delay(2000).fadeOut()
+    //         a.preventDefault()
+    //     } else {
+    //         var list = dob.split('-')
+    //         list = Number(list[0])
+    //         if (list > 2010 || list < 1930) {
+    //             list = year - list
+    //             $('#id_dob').after("<p>Вам " + list + " лет? Ваш возраст явно некорректен!</p>")
+    //             $('p').delay(3000).fadeOut()
+    //             a.preventDefault()
+    //         }
+    //     }
+    // })
 
     $('#id_disease').click(function() {
         var form = $(this)

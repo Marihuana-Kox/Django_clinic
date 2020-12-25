@@ -8,10 +8,8 @@ class SelectMedication(models.Model):
     medication = models.ForeignKey(
         MedicationServices, on_delete=models.CASCADE, verbose_name='Лечение')
 
-    class Meta:
-        index_together = [
-            ["diagnos", "medication"],
-        ]
+    def __str__(self):
+        return self.diagnos
 
 
 class RecordPacientDate(models.Model):

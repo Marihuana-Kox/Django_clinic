@@ -1,7 +1,64 @@
+@import '../css/recorder.style.two.css';
 h1 {
     color: beige;
 }
 
 p {
     color: black;
+}
+
+section {
+    margin: 30px 0;
+}
+
+span {
+    display: flex;
+    color: beige;
+    padding: 10px 0;
+}
+
+.form-control {
+    background-color: rgb(143 250 234);
+    color: rgb(22 55 88);
+    font-size: 1.2em;
+}
+
+.form-control:focus {
+    cursor: pointer;
+    background-color: rgb(197 244 237);
+}
+
+input[type='button'] {
+    margin: 20px 0;
+}
+
+.calendar-view {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-select-month {
+    display: inline-block;
+    width: 100%;
+}
+
+.top-date {
+    float: left;
+}
+
+.style-arr {
+    width: 33.333333%;
+}
+
+.arr {
+    cursor: pointer;
+}
+
+.arr-left {
+    float: left;
+}
+
+.arr-right {
+    float: right;
 }
