@@ -45,7 +45,12 @@ def calendar_best(year, month, week_work):
         last_month = month - 1
 
     no_working = []
+    happyD = []
 
+    val = week_work.values_list('happy_days', flat=True)
+    for i in val[0].split(','):
+        happyD.append(i.strip())
+    
     for val in week_work.values('week_day'):
         no_working.append(int(*val.values()) - 1)
 
@@ -83,10 +88,11 @@ def calendar_best(year, month, week_work):
             if days == 0:
                 viewcall += "<div class='col-days-none'></div>"
             else:
+                ymd = dt(year, month, days)
                 """Выбираем сегодняшний день"""
                 if days == int(today) and month == today_month and year == int(today_year):
                     """Проверяем, не попадает ли он в выходной"""
-                    if dt(year, month, days).weekday() not in no_working:
+                    if ymd.weekday() not in no_working:
                         viewcall += "<div class='col-days-today happy' id='undefined'>{0}</div>" . format(
                             days)
                     else:
@@ -95,12 +101,14 @@ def calendar_best(year, month, week_work):
                             now.strftime("%d-%m-%Y"), days)
                 else:
                     """Выбираем выходные дни"""
-                    if dt(year, month, days).weekday() not in no_working:
-                        viewcall += "<div class='col-days happy' id='undefined'>{0}</div>" . format(
-                            days)
+                    if ymd.weekday() not in no_working:
+                        viewcall += "<div class='col-days happy' id='undefined'>{0}</div>" . format(days)# happyD, ymd.date()
                     else:
-                        viewcall += "<div class='col-days btn btn-primary' id='{0}-{1}-{2}'>{3}</div>" . format(
-                            days, month, year, days)
+                        if str(ymd.date()) in happyD:
+                            viewcall += "<div class='col-days happy' id='undefined'>{0}</div>" . format(days)# happyD, ymd.date()
+                        else:
+                            viewcall += "<div class='col-days btn btn-primary' id='{0}-{1}-{2}'>{3}</div>" . format(
+                                days, month, year, days)
     viewcall += "<div class='col-12 button-style get-today'>Сегодня</div>"
     viewcall += "</div></div>"
 

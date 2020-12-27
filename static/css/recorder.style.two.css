@@ -1,3 +1,30 @@
 .get-today {
     cursor: pointer;
 }
+
+.hidden-block-window {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(86 113 109 / 70%);
+}
+
+.recorder-free-time {
+    position: absolute;
+    z-index: 1;
+    width: 600px;
+    padding: 20px 20px 0 20px;
+    background: blanchedalmond;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -75px;
+}
+
+.btn-box {
+    width: 100%;
+}

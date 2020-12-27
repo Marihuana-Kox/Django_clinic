@@ -1,3 +1,7 @@
-<div class="recorder-free-time">
-    {{ work_time }}
+<div class="row recorder-free-time">
+    {{ record_day|safe }}
+    <div class="btn-box">
+        <input type="button" class="btn btn-secondary" value="Закрыть">
+        <input type="button" class="btn btn-success" value="Выбрать">
+    </div>
 </div>

@@ -22,11 +22,12 @@ $(document).ready(function() {
             } else if (last_year == year && last_month < month) {
                 days.css({ 'cursor': 'crosshair' }).addClass('no-active')
                 days.attr('id', 'undefined')
-            } else if (last_month == month && last_day < cur_day) {
+            } else if (last_year == year && last_month == month && last_day < cur_day) {
                 days.css({ 'cursor': 'crosshair' }).addClass('no-active')
                 days.attr('id', 'undefined')
             }
         })
+        return false;
     }
 
     var d = new Date()
@@ -55,7 +56,7 @@ $(document).ready(function() {
         var cur_y = cur_yearmonth[0]
         var cur_m = cur_yearmonth[1]
         $.ajax({
-            url: '/records/month/' + cur_y + "-" + cur_m + '/',
+            url: '/records/month/' + cur_y + '-' + cur_m + '/',
             type: 'GET',
             success: function(result) {
                 var diagnos = $("#id_diagnos").val()
