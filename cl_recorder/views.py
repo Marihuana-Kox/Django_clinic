@@ -41,11 +41,3 @@ def get_free_date_time(request, day, month, year, medic):
     template_name = 'cl_recorder/record_free_time.html'
     return render(request, template_name, context)
 
-# class IndexRecorderView(ListView):
-#     """Страница записи пациентов"""
-#     model = RecordPacientDate
-#     template_name = 'cl_recorder/index.html'
-
-#     def get(self, request):
-#         form = SelectMedicationForm()
-#         return render(request, self.template_name, {'form': form})

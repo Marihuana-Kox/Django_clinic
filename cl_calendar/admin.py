@@ -1,17 +1,10 @@
 from django.contrib import admin
 # Register your models here.
-from . models import RegistrationDate, WorkinDays, Week
+from . models import WorkinDays, Week
 
 
 class WeekAdmin(admin.ModelAdmin):
     list_display = ('name', 'number')
-
-
-
-class RegistrationDateAdmin(admin.ModelAdmin):
-    list_display = ('phone', 'surname', 'name', 'patronymic', 'dob', 'curent_date',)
-    search_fields = ('phone', 'surname', 'dob')
-
 
 
 class WorkinDaysAdmin(admin.ModelAdmin):
@@ -19,5 +12,4 @@ class WorkinDaysAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Week, WeekAdmin)
-admin.site.register(RegistrationDate, RegistrationDateAdmin)
 admin.site.register(WorkinDays, WorkinDaysAdmin)

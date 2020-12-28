@@ -21,4 +21,21 @@ $(document).ready(function() {
             }
         })
     })
+    $(document).on('click', '.select-time', function() {
+        var tmblok = $(this)
+        var tmselect = tmblok.text()
+        if ($('.select-time').hasClass('select-time-active')) {
+            $('.select-time').removeClass('select-time-active')
+            tmblok.addClass('select-time-active')
+            $('.info-label').text("Нажмите кнопку «выбрать».")
+            $('.info-label').animate({ fontSize: "1em" }, 1000);
+        } else {
+            tmblok.addClass('select-time-active')
+            $('.info-label').text("Нажмите кнопку «выбрать».")
+            $('.info-label').animate({ fontSize: "1em" }, 1000);
+        }
+
+        console.log(tmselect)
+
+    })
 })
